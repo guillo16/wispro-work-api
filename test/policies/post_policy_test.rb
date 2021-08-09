@@ -10,13 +10,4 @@ class PostPolicyTest < ActiveSupport::TestCase
     assert_permit(users(:company), @post, :create?)
   end
 
-  def test_update
-   assert_forbid(users(:person), @post, :create?)
-   assert_permit(users(:company), @post, :create?)
- end
-
- def test_destroy
-   assert_forbid(users(:person), @post, :create?)
-   assert_permit(users(:company), @post, :create?)
- end
 end
