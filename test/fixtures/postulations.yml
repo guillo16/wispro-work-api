@@ -1,0 +1,4 @@
+first_postulation:
+  description: The best candidate for the job
+  user: users(:person)
+  post: posts(:first_post)

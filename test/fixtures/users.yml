@@ -1,0 +1,6 @@
+company:
+  email: company@mail.com
+  role_level: 1
+person:
+  email: person@mail.com
+  role_level: 0

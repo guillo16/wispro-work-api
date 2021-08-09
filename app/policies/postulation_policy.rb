@@ -6,7 +6,7 @@ class PostulationPolicy < ApplicationPolicy
   end
 
   def show?
-    record.user == user
+    user.person? || user.company?
   end
 
   def create?
