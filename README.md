@@ -10,7 +10,34 @@ The persons will have an index where they can see all the posts and a postulatio
 
 ## Testing
 
-In this app we use Minitest, we test the model controllers and jobs of each model.
+In this app we use Minitest, we test the model controllers and policies.
+```
+rails test
+```
+For testing the API response status, I used [link to postman](https://www.postman.com/)
+
+## Usage
+
+You can use and test the API form [link to postman](https://www.postman.com/)
+or from the terminal you can make curl comands
+
+### For singup
+```
+curl -XPOST -H "Content-Type: application/json" -d '{ "user": { "email": "user@test.com", "password": "12345678" } }' http://localhost:3000/users
+```
+
+### For login
+
+```
+curl -XPOST -i -H "Content-Type: application/json" -d '{ "user": { "email": "user@test.com", "password": "12345678" } }' http://localhost:3000/users/sign_in
+```
+The -i flag is very important. It prints the response headers, which contain the JWT token for authorizing future requests
+
+### For signout
+
+```
+curl -XDELETE -H "Authorization: Bearer {The Authorization token that prints when you run the login with the -i flag}" -H "Content-Type: application/json" http://localhost:3000/users/sign_out
+```
 
 ## Gems
 - rails
