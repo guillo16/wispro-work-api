@@ -11,7 +11,7 @@ class Api::V1::PostsController < Api::V1::BaseController
   end
 
   def create
-    @post = post.new(post_params)
+    @post = Post.new(post_params)
     @post.user = current_user
     authorize @post
     if @post.save
@@ -24,7 +24,7 @@ class Api::V1::PostsController < Api::V1::BaseController
   def destroy
     @post.destroy
     authorize @post
-    render :index, status: :destroyed
+    render :index
   end
 
   private
@@ -34,7 +34,7 @@ class Api::V1::PostsController < Api::V1::BaseController
   end
 
   def post_params
-    params.require(:post).permit(:title)
+    params.require(:post).permit(:title, :content)
   end
 
   def render_error
