@@ -6,7 +6,6 @@ class Api::V1::PostsController < Api::V1::BaseController
   end
 
   def show
-    @post = Post.find(params[:id])
     authorize @post
   end
 
