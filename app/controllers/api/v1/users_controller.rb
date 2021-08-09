@@ -1,5 +1,5 @@
 class Api::V1::UsersController < Api::V1::BaseController
   def index
-    @articles = current_user.articles
+    @posts = policy_scope(current_user.posts)
   end
 end
