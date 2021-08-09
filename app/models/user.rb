@@ -6,6 +6,8 @@ class User < ApplicationRecord
          :registerable,
          jwt_revocation_strategy: JwtDenylist
 
+  has_many :posts
+
   validates :email, presence: true
-  valiates :email, uniqueness: true
+  validates :email, uniqueness: true
 end
