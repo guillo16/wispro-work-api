@@ -1,18 +1,22 @@
 require 'test_helper'
 
 class PostPolicyTest < ActiveSupport::TestCase
-  def test_scope
-  end
-
-  def test_show
+  setup do
+    @post = posts(:first_post)
   end
 
   def test_create
+    assert_forbid(users(:person), @post, :create?)
+    assert_permit(users(:company), @post, :create?)
   end
 
   def test_update
-  end
+   assert_forbid(users(:person), @post, :create?)
+   assert_permit(users(:company), @post, :create?)
+ end
 
-  def test_destroy
-  end
+ def test_destroy
+   assert_forbid(users(:person), @post, :create?)
+   assert_permit(users(:company), @post, :create?)
+ end
 end
